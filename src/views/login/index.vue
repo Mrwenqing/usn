@@ -53,6 +53,7 @@ export default {
       const userInfo = await this.$store.dispatch("handleUserInfo")
       if(!userInfo) return
       this.$message.success("登录成功")
+      sessionStorage.setItem('token',JSON.stringify(this.loginForm.username))
       this.$router.push("/")
     }
   }
