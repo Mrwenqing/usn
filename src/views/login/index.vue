@@ -10,7 +10,6 @@
           <el-input v-model.trim="loginForm.password"></el-input>
         </el-form-item>
         <el-form-item>
-          <!-- <h1>button</h1> -->
           <el-button type="primary" @click="handleLoginSubmit">登录</el-button>
         </el-form-item>
       </el-form>

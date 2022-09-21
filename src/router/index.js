@@ -16,4 +16,16 @@ const router = new VueRouter({
   routes,
 });
 
+// 全局导航守卫
+router.beforeEach((to, from, next) => { // to到哪儿去  from从哪儿来  next执行下一步 放行
+  if (sessionStorage.getItem("token")) {
+      next(); // 执行下一步 放行
+  } else {
+      if (to.path == "/login") {
+          next();
+      } else {
+          next('/login'); // 跳转的意思
+      }
+  }
+})
 export default router;
