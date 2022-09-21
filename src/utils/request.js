@@ -9,6 +9,8 @@ const exceptionMessage = {
 
 import {Message} from "element-ui"
 
+import store from "../store"
+
 //创建axios实例配置, 返回实例对象
 const service = axios.create({
   // baseURL : process.env.VUE_APP_BASE_API,
@@ -17,6 +19,11 @@ const service = axios.create({
 
 // 请求拦截器
 service.interceptors.request.use(function (config) {
+  // 获取vuex的token
+  const token = store.getters.token
+  // 当token存在的时候，则将token通过请求头发送给后台
+  if(token) config.headers.authorization ="Bearer " + token
+
   return config;
 }, function (error) {
   return Promise.reject(error);
@@ -45,10 +52,8 @@ service.interceptors.response.use(function (response) {
 
 /**
  * 错误提示
- * @param errorCode
- * @param message
- * @private
- */
+
+*/
 const _showError = (errorCode, message) => {
   let title
   title = exceptionMessage[errorCode] || message || '发生未知错误'
@@ -57,7 +62,6 @@ const _showError = (errorCode, message) => {
 
 /**
  * 解决不同请求方式时统一使用data来进行传参
- * @param options
  */
 const request = (options) => {
 

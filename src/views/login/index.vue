@@ -18,7 +18,6 @@
 </template>
 
 <script>
-import {login} from "../../api/user"
 export default {
   name: "index",
   data(){
@@ -49,15 +48,12 @@ export default {
     },
     // 登录方法
     async handleLogin(){
-      try{
-        const response = await login(this.loginForm)
-        console.log('response=>',response)
-        console.log('token=>', response.token)
-        // 将token存到vuex 以及 本地 
-      }catch (e){
-        console.log(e.message)
-      }
-
+      const token = await this.$store.dispatch("login",this.loginForm)
+      if(!token) return
+      const userInfo = await this.$store.dispatch("handleUserInfo")
+      if(!userInfo) return
+      this.$message.success("登录成功")
+      this.$router.push("/")
     }
   }
 };

@@ -5,7 +5,7 @@ module.exports = defineConfig({
   publicPath : "./",
   devServer: {
     // 端口号
-    port: 8888,
+    port: 8062,
     // 主机名
     host: "localhost",
     // 启动项目时是否自动打开浏览器
