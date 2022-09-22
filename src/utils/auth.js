@@ -1,3 +1,8 @@
+/**
+ * @author YangLing
+ * @date 2022/9/21 15:04
+ */
+
 const TOKEN_KEY = "token"
 const USER_INFO_KEY = "userInfo"
 
@@ -10,6 +15,7 @@ export const setToken = (token) => {
 }
 /**
  * 获取token
+ * @returns {string}
  */
 export const getToken = () => {
   return localStorage.getItem(TOKEN_KEY)

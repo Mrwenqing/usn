@@ -46,6 +46,13 @@ export default new Vuex.Store({
         console.log(e.message)
       }
     }
+    /*
+    DIS_SET_TOKEN({commit},token){
+      commit("SET_TOKEN",token)
+    },
+    DIS_SET_USER_INFO({commit},userInfo){
+      commit("SET_USER_INFO", userInfo)
+    }*/
   },
   modules: {},
 });
