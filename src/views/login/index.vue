@@ -27,10 +27,12 @@ export default {
         password: '',
       },
       rules : {
+        // 用户名校验
         username : [
           {required : true, message : "账号不能为空", trigger : 'blur'},
           {min : 3, max : 12, message: '请输入3～12个字符', trigger: 'blur'}
         ],
+        // 密码校验
         password : [
           {required : true, message : "密码不能为空", trigger : 'blur'},
         ]
