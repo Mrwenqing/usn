@@ -64,19 +64,4 @@ const router = new VueRouter({
   routes,
 });
 
-// 挂载路由守卫
-router.beforeEach((to, from, next) => {
-  let a=JSON.parse(sessionStorage.getItem('token'))
-  // to and from are both route objects. must call `next`.
-  if (a != null) {
-     next()//执行下一步放行
-  }else{
-    if(to.path=='/login'){
-      next()
-    }else{
-      next('/login')
-    }
-  }
-})
-
 export default router;

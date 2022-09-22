@@ -38,24 +38,6 @@ module.exports = defineConfig({
           ["^" + process.env.VUE_APP_BASE_V2]: "",
         },
       },
-      // /dev-api 代理名称 process.env.VUE_APP_BASE_API === "/dev-api"
-      // [process.env.VUE_APP_BASE_API] : {
-      //    target : process.env.VUE_APP_SERVICE_URL,
-      //    changeOrigin : true,
-      //    pathRewrite : {
-      //      ["^" + process.env.VUE_APP_BASE_API] : ''
-      //    }
-      //  }
-      // "/dev1-api" : {
-      //   // 跨域的地址
-      //   target : "http://localhost:3000",
-      //   // 开启跨域
-      //   changeOrigin : true,
-      //   // 路径重写
-      //   pathRewrite : {
-      //     "^/dev1-api" : ''
-      //   }
-      // }
     },
   },
   // 关闭eslint

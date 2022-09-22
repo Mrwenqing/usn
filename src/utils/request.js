@@ -1,7 +1,3 @@
-/**
- * @author YangLing
- * @date 2022/9/20 09:09
- */
 // 引入axios
 import axios from 'axios'
 
@@ -43,6 +39,8 @@ service.interceptors.response.use(function (response) {
 
   if(response.status === 401){
     // TODO token的过期处理
+    // 清空本地的token以及用户信息
+    // 跳转到登录页
     return
   }
 
@@ -54,22 +52,15 @@ service.interceptors.response.use(function (response) {
   return Promise.reject(error);
 })
 
-/**
- * 错误提示
- * @param errorCode
- * @param message
- * @private
- */
+// 错误提示
 const _showError = (errorCode, message) => {
   let title
   title = exceptionMessage[errorCode] || message || '发生未知错误'
   Message.error(title)
 }
 
-/**
- * 解决不同请求方式时统一使用data来进行传参
- * @param options
- */
+
+  // 解决不同请求方式时统一使用data来进行传参
 const request = (options) => {
 
   options.method = options.method || 'get'
