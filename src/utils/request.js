@@ -1,3 +1,7 @@
+/**
+ * @author YangLing
+ * @date 2022/9/20 09:09
+ */
 // 引入axios
 import axios from 'axios'
 
@@ -52,15 +56,22 @@ service.interceptors.response.use(function (response) {
   return Promise.reject(error);
 })
 
-// 错误提示
+/**
+ * 错误提示
+ * @param errorCode
+ * @param message
+ * @private
+ */
 const _showError = (errorCode, message) => {
   let title
   title = exceptionMessage[errorCode] || message || '发生未知错误'
   Message.error(title)
 }
 
-
-  // 解决不同请求方式时统一使用data来进行传参
+/**
+ * 解决不同请求方式时统一使用data来进行传参
+ * @param options
+ */
 const request = (options) => {
 
   options.method = options.method || 'get'

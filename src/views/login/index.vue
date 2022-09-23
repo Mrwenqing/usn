@@ -27,12 +27,10 @@ export default {
         password: '',
       },
       rules : {
-        // 用户名校验
         username : [
           {required : true, message : "账号不能为空", trigger : 'blur'},
           {min : 3, max : 12, message: '请输入3～12个字符', trigger: 'blur'}
         ],
-        // 密码校验
         password : [
           {required : true, message : "密码不能为空", trigger : 'blur'},
         ]
@@ -57,6 +55,25 @@ export default {
       this.$message.success("登录成功")
       this.$router.push("/")
     }
+    /*
+    async handleLogin(){
+      try{
+        // 调用登录接口
+        const response = await login(this.loginForm)
+        // 将token存储到vuex
+        this.$store.dispatch("DIS_SET_TOKEN",response.token)
+        // 调用获取用户信息接口
+        const userInfo = await getUserInfo()
+        // 将用户信息存储到vuex以及本地
+        this.$store.dispatch("DIS_SET_USER_INFO",userInfo)
+        // 提示登录成功
+        this.$message.success("登录成功")
+        // 跳转到主页
+        this.$router.push("/")
+      }catch (e){
+        console.log(e.message)
+      }
+    */
   }
 };
 </script>

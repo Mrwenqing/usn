@@ -1,20 +1,32 @@
+/**
+ * @author YangLing
+ * @date 2022/9/22 14:22
+ */
 
 // 引入路由对象
 import router from "./router"
 // 引入vuex
 import store from "./store"
+// 引入删除token以及删除用户信息方法
+import {removeTokenAndUserInfo} from "./utils/auth";
+
 
 // 创建路由守卫，实现页面拦截
+// to 要进入的页面  from 跳转前的页面  next可以进入的页面
+// 什么触发路由守卫方法， 页面进行跳转到的时候就会触发
 router.beforeEach(async (to,from, next)=>{
+  console.log("123")
   const token = store.getters.token
   if(token){
     // 已登录的逻辑
     if(to.path === "/login"){
       next(from.path)
     }else{
+
       // 获取用户信息
       let userInfo = store.getters.userInfo
       userInfo = typeof userInfo === "object" ? JSON.stringify(userInfo) : userInfo
+
       if(userInfo === "{}" || userInfo === ""){
         // 没有token
         // token过期

@@ -29,7 +29,12 @@ export default new Vuex.Store({
     }
   },
   actions: {
-//  登录
+    /**
+     * 登录
+     * @param commit
+     * @param loginForm
+     * @returns {Promise<(function(*): *)|CancelToken|*>}
+     */
     async login({commit}, loginForm){
       try{
         const response = await login(loginForm)
@@ -39,8 +44,11 @@ export default new Vuex.Store({
         console.log(e.message)
       }
     },
-//  获取用户信息
-
+    /**
+     * 获取用户信息
+     * @param commit
+     * @returns {AxiosPromise<any>}
+     */
     async handleUserInfo({commit}){
       try{
         const userinfo = await userInfo()
@@ -50,8 +58,10 @@ export default new Vuex.Store({
         console.log(e.message)
       }
     },
-//  退出登录
-
+    /**
+     * 退出登录
+     * @param commit
+     */
     async handleLogout({commit}){
       const response = await logout()
       commit("SET_TOKEN","")
