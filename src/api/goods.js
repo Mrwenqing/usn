@@ -1,55 +1,52 @@
+import request from "../utils/request";
 
-import request from "../utils/request"
-
-// 获取/查询 供应商列表接口
-const getGoodsList = (page,size,data) => {
+// 获取/查询 商品列表接口
+const getGoodsList = (page, size, data) => {
   return request({
-    url : `/goods/list/search/${page}/${size}`,
-    method : "GET",
-    data
-  })
-}
+    url: `/goods/list/search/${page}/${size}`,
+    method: "GET",
+    data,
+  });
+};
 
-
-// 删除单个供应商接口
+// 删除单个商品接口
 const deleteGoodsList = (id) => {
   return request({
-    url : `/goods/${id} `,
-    method : 'DELETE'
-  })
-}
+    url: `/goods/${id} `,
+    method: "DELETE",
+  });
+};
 
-// 新增供应商
+// 新增商品
 const addGoods = (data) => {
   return request({
-    url : '/goods',
-    method : 'POST',
-    data
-  })
-}
+    url: "/goods",
+    method: "POST",
+    data,
+  });
+};
 
-// 编辑供应商
-const editGoods = (id,data) => {
+// 编辑商品
+const editGoods = (id, data) => {
   return request({
-    url : `/goods/${id} `,
-    method : "PUT",
-    data
-  })
-}
+    url: `/goods/${id} `,
+    method: "PUT",
+    data,
+  });
+};
 
-// 查询单个供应商接口
+// 查询单个商品接口
 const findGoods = (id) => {
   return request({
-    url : `/goods/${id}`,
-    method : 'GET'
-  })
-}
-
+    url: `/goods/${id}`,
+    method: "GET",
+  });
+};
 
 export default {
-    getGoodsList,
+  getGoodsList,
   deleteGoodsList,
   addGoods,
   editGoods,
-  findGoods
-}
+  findGoods,
+};

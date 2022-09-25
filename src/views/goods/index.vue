@@ -1,10 +1,6 @@
 <template>
   <div class="mt-2">
-    <el-form
-      ref="GoodsQueryForm"
-      :inline="true"
-      :model="GoodsQueryParams"
-    >
+    <el-form ref="GoodsQueryForm" :inline="true" :model="GoodsQueryParams">
       <el-form-item prop="name">
         <el-input
           v-model="GoodsQueryParams.name"
@@ -135,7 +131,7 @@ export default {
   name: "index",
   data() {
     return {
-      // 用来保存后台返回的会员列表数据
+      // 用来保存后台返回的商品列表数据
       GoodsList: [],
       // 页码
       page: 1,
@@ -157,15 +153,17 @@ export default {
         code: "",
         spec: "",
         retailPrice: "",
-        purchasePrice:"",
-        storageNum:"",
-        supplierName:""
+        purchasePrice: "",
+        storageNum: "",
+        supplierName: "",
       },
       // 弹窗标题
       dialogTitle: "供应商新增",
       // 弹窗表单的校验规则
       dialogRules: {
-        name: [{ required: true, message: "商品名称不能为空", trigger: "blur" }],
+        name: [
+          { required: true, message: "商品名称不能为空", trigger: "blur" },
+        ],
         code: [
           { required: true, message: "商品编码不能为空", trigger: "blur" },
         ],
@@ -180,7 +178,7 @@ export default {
   },
   methods: {
     /**
-     * 获取会员列表数据
+     * 获取商品列表数据
      * @returns {Promise<void>}
      */
     async getGoodsList() {
@@ -207,7 +205,7 @@ export default {
       this.getGoodsList();
     },
     /**
-     * 会员查询功能
+     * 商品查询功能
      */
     handleQueryGoods() {
       this.page = 1;
@@ -220,7 +218,7 @@ export default {
       this.$refs[formName].resetFields();
     },
     /**
-     * 删除会员功能
+     * 删除商品功能
      * @param id
      */
     handleDelete(id) {
@@ -251,11 +249,11 @@ export default {
     handleOpenDialog(id) {
       this.dialogFormVisible = true;
       if (typeof id === "number") {
-        this.dialogTitle = "会员编辑";
+        this.dialogTitle = "商品编辑";
         this.handleFindGoods(id);
         return;
       }
-      this.dialogTitle = "会员新增";
+      this.dialogTitle = "商品新增";
     },
     /**
      * 弹窗的提交方法
@@ -269,7 +267,7 @@ export default {
       });
     },
     /**
-     * 会员新增
+     * 商品新增
      */
     async handleAddGoods() {
       try {
@@ -283,7 +281,7 @@ export default {
       }
     },
     /**
-     * 会员编辑方法
+     * 商品编辑方法
      */
     async handleEditGoods() {
       try {
@@ -300,7 +298,7 @@ export default {
       }
     },
     /**
-     * 查询单个会员数据
+     * 查询单个商品数据
      */
     async handleFindGoods(id) {
       try {

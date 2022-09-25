@@ -114,7 +114,7 @@ export default {
   name: "index",
   data() {
     return {
-      // 用来保存后台返回的会员列表数据
+      // 用来保存后台返回的供应商列表数据
       SupplierList: [],
       // 页码
       page: 1,
@@ -154,7 +154,7 @@ export default {
   },
   methods: {
     /**
-     * 获取会员列表数据
+     * 获取供应商列表数据
      * @returns {Promise<void>}
      */
     async getSupplierList() {
@@ -181,7 +181,7 @@ export default {
       this.getSupplierList();
     },
     /**
-     * 会员查询功能
+     * 供应商查询功能
      */
     handleQuerySupplier() {
       this.page = 1;
@@ -194,7 +194,7 @@ export default {
       this.$refs[formName].resetFields();
     },
     /**
-     * 删除会员功能
+     * 删除供应商功能
      * @param id
      */
     handleDelete(id) {
@@ -225,11 +225,11 @@ export default {
     handleOpenDialog(id) {
       this.dialogFormVisible = true;
       if (typeof id === "number") {
-        this.dialogTitle = "会员编辑";
+        this.dialogTitle = "供应商编辑";
         this.handleFindSupplier(id);
         return;
       }
-      this.dialogTitle = "会员新增";
+      this.dialogTitle = "供应商新增";
     },
     /**
      * 弹窗的提交方法
@@ -243,7 +243,7 @@ export default {
       });
     },
     /**
-     * 会员新增
+     * 供应商新增
      */
     async handleAddSupplier() {
       try {
@@ -257,7 +257,7 @@ export default {
       }
     },
     /**
-     * 会员编辑方法
+     * 供应商编辑方法
      */
     async handleEditSupplier() {
       try {
@@ -274,7 +274,7 @@ export default {
       }
     },
     /**
-     * 查询单个会员数据
+     * 查询单个供应商数据
      */
     async handleFindSupplier(id) {
       try {
