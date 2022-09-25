@@ -1,7 +1,3 @@
-/**
- * @author YangLing
- * @date 2022/9/20 09:09
- */
 // 引入axios
 import axios from 'axios'
 

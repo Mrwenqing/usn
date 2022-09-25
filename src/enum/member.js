@@ -1,8 +1,3 @@
-/**
- * @author YangLing
- * @date 2022/9/23 09:32
- */
-
 // 支付类型的枚举值
 const payType = [
   {

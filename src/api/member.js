@@ -2,9 +2,9 @@
 import request from "../utils/request"
 
 // 获取会员列表与查询分页接口
-const getMemberList = (page,size,data) => {
+const getMemberList = (currentPage,pageSize,data) => {
   return request({
-    url : `/member/list/search/${page}/${size}`,
+    url : `/member/list/search/${currentPage}/${pageSize}`,
     method : "POST",
     data
   })
