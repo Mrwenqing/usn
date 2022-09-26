@@ -16,5 +16,6 @@ h2{
   margin-top: 20px;
   font-weight: 700;
   text-align: center;
+  color: skyblue;
 }
 </style>
